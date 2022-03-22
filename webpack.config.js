@@ -8,8 +8,25 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
+  },
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'Webpack Starter',
       template: path.resolve(__dirname, 'src', 'index.html'),
     }),
   ],
